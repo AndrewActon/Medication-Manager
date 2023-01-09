@@ -20,6 +20,10 @@
 		BF8AA3C8296162C20003B808 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AA3C7296162C20003B808 /* CoreDataStack.swift */; };
 		BF8AA3CA296165DD0003B808 /* Medication+convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AA3C9296165DD0003B808 /* Medication+convenience.swift */; };
 		BF8AA3CC296524000003B808 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AA3CB296524000003B808 /* DateFormatter.swift */; };
+		BF8AA400296A28EC0003B808 /* TakenDate+convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AA3FF296A28EC0003B808 /* TakenDate+convenience.swift */; };
+		BF8AA402296A62D30003B808 /* MoodSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AA401296A62D30003B808 /* MoodSurveyViewController.swift */; };
+		BF8E11DE296A674B00B5F2EC /* MoodSurvey + convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E11DD296A674B00B5F2EC /* MoodSurvey + convenience.swift */; };
+		BF8E11E0296A67DD00B5F2EC /* MoodSurveyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8E11DF296A67DD00B5F2EC /* MoodSurveyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		BF8AA3C7296162C20003B808 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BF8AA3C9296165DD0003B808 /* Medication+convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+convenience.swift"; sourceTree = "<group>"; };
 		BF8AA3CB296524000003B808 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		BF8AA3FF296A28EC0003B808 /* TakenDate+convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TakenDate+convenience.swift"; sourceTree = "<group>"; };
+		BF8AA401296A62D30003B808 /* MoodSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyViewController.swift; sourceTree = "<group>"; };
+		BF8E11DD296A674B00B5F2EC /* MoodSurvey + convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodSurvey + convenience.swift"; sourceTree = "<group>"; };
+		BF8E11DF296A67DD00B5F2EC /* MoodSurveyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSurveyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 			children = (
 				BF8AA3BA2961369C0003B808 /* MedicationListViewController.swift */,
 				BF8AA3BC296136BB0003B808 /* MedicationDetialViewController.swift */,
+				BF8AA401296A62D30003B808 /* MoodSurveyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -102,6 +111,8 @@
 				BF8AA3AC29612B200003B808 /* MedicationManager.xcdatamodeld */,
 				BF8AA3C7296162C20003B808 /* CoreDataStack.swift */,
 				BF8AA3C9296165DD0003B808 /* Medication+convenience.swift */,
+				BF8AA3FF296A28EC0003B808 /* TakenDate+convenience.swift */,
+				BF8E11DD296A674B00B5F2EC /* MoodSurvey + convenience.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				BF8AA3C4296160460003B808 /* MedicationController.swift */,
+				BF8E11DF296A67DD00B5F2EC /* MoodSurveyController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -199,14 +211,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8E11E0296A67DD00B5F2EC /* MoodSurveyController.swift in Sources */,
 				BF8AA3A429612B200003B808 /* AppDelegate.swift in Sources */,
+				BF8E11DE296A674B00B5F2EC /* MoodSurvey + convenience.swift in Sources */,
 				BF8AA3BB2961369C0003B808 /* MedicationListViewController.swift in Sources */,
 				BF8AA3BD296136BB0003B808 /* MedicationDetialViewController.swift in Sources */,
 				BF8AA3AE29612B200003B808 /* MedicationManager.xcdatamodeld in Sources */,
 				BF8AA3CC296524000003B808 /* DateFormatter.swift in Sources */,
+				BF8AA400296A28EC0003B808 /* TakenDate+convenience.swift in Sources */,
 				BF8AA3C5296160460003B808 /* MedicationController.swift in Sources */,
 				BF8AA3BF296138900003B808 /* MedicationTableViewCell.swift in Sources */,
 				BF8AA3CA296165DD0003B808 /* Medication+convenience.swift in Sources */,
+				BF8AA402296A62D30003B808 /* MoodSurveyViewController.swift in Sources */,
 				BF8AA3A629612B200003B808 /* SceneDelegate.swift in Sources */,
 				BF8AA3C8296162C20003B808 /* CoreDataStack.swift in Sources */,
 			);

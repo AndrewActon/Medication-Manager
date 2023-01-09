@@ -7,23 +7,27 @@
 
 import UIKit
 
+protocol MoodSurveyViewControllerDelegate: AnyObject {
+    func moodButtonTapped(with emoji: String)
+}
+
 class MoodSurveyViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    //MARK: Properties
+    weak var delegate: MoodSurveyViewControllerDelegate?
+    
+    //MARK: Actions
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    @IBAction func emojiTapped(_ sender: UIButton) {
+        guard let emoji = sender.titleLabel?.text
+        else { return }
+            
+        delegate?.moodButtonTapped(with: emoji)
+        dismiss(animated: true)
+        }
 }
+
+
