@@ -16,6 +16,13 @@ class MoodSurveyViewController: UIViewController {
     //MARK: Properties
     weak var delegate: MoodSurveyViewControllerDelegate?
     
+    override func viewDidLoad() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reminderFired),
+                                               name: NSNotification.Name(Strings.medicationReminderReceived),
+                                               object: nil)
+    }
+    
     //MARK: Actions
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -28,6 +35,10 @@ class MoodSurveyViewController: UIViewController {
         delegate?.moodButtonTapped(with: emoji)
         dismiss(animated: true)
         }
+    
+    @objc private func reminderFired() {
+        print("\(#file) received the Memo!")
+    }
 }
 
 

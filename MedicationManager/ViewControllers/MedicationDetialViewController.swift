@@ -20,14 +20,17 @@ class MedicationDetialViewController: UIViewController {
         
         if let medication = medication,
            let timeOfDay = medication.timeOfDay {
-            title = "Medicaion Details"
+            title = Strings.medicationDetialsTitle
             nameTextField.text = medication.name
             datePicker.date = timeOfDay
         } else {
-            title = "Add Medicaion"
+            title = Strings.addMedicationTitle
         }
         
-        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reminderFired),
+                                               name: NSNotification.Name(Strings.medicationReminderReceived),
+                                               object: nil)
     }
     
     //MARK: - Actions
@@ -48,5 +51,7 @@ class MedicationDetialViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-
+    @objc private func reminderFired() {
+        print("\(#file) received the Memo!")
+    }
 }

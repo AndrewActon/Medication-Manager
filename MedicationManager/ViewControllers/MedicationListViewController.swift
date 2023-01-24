@@ -20,6 +20,11 @@ class MedicationListViewController: UIViewController {
         guard let survey = MoodSurveyController.shared.fetchSurveys() else { return }
         
         moodSurveyButton.setTitle(survey.mentalState, for: .normal)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reminderFired),
+                                               name: NSNotification.Name(Strings.medicationReminderReceived),
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,25 +39,19 @@ class MedicationListViewController: UIViewController {
         
     }
     @IBAction func surveyButtonTapped(_ sender: UIButton) {
-        guard let moodSurveyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "moodSurveyViewController") as? MoodSurveyViewController else { return }
+        guard let moodSurveyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Strings.moodSurveyViewControllerIdentifier) as? MoodSurveyViewController else { return }
         
         moodSurveyViewController.delegate = self
         navigationController?.present(moodSurveyViewController, animated: true, completion: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func reminderFired() {
+        print("\(#file) received the Memo!")
     }
-    */
-
+    
+    //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMedicationDetails",
+        if segue.identifier == Strings.medicationDetialsSegueIdentifier,
            let indexPath = tableView.indexPathForSelectedRow,
            let destination = segue.destination as? MedicationDetialViewController {
             let medication = MedicationController.shared.sections[indexPath.section][indexPath.row]
@@ -95,7 +94,15 @@ extension MedicationListViewController: UITableViewDataSource {
     
 }
 
-extension MedicationListViewController: UITableViewDelegate {}
+extension MedicationListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let medication = MedicationController.shared.sections[indexPath.section][indexPath.row]
+            MedicationController.shared.deleteMedication(medication)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
 
 extension MedicationListViewController: MedicationTableViewCellDelegate {
         

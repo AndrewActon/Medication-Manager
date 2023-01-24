@@ -164,7 +164,9 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="ctF-Dz-VhU" firstAttribute="leading" secondItem="UIm-io-u6o" secondAttribute="trailing" constant="8" id="6Jw-Xr-XuM"/>
+                                                        <constraint firstItem="ctF-Dz-VhU" firstAttribute="leading" secondItem="5ob-Gu-6yY" secondAttribute="trailing" constant="8" symbolic="YES" id="73w-Ta-nMU"/>
                                                         <constraint firstAttribute="bottom" secondItem="ctF-Dz-VhU" secondAttribute="bottom" constant="8" id="JJJ-YR-enc"/>
+                                                        <constraint firstItem="ctF-Dz-VhU" firstAttribute="leading" secondItem="UIm-io-u6o" secondAttribute="trailing" constant="8" symbolic="YES" id="KyM-8K-wsE"/>
                                                         <constraint firstAttribute="bottom" secondItem="5ob-Gu-6yY" secondAttribute="bottom" constant="8" id="LpZ-3U-NQ0"/>
                                                         <constraint firstItem="UIm-io-u6o" firstAttribute="top" secondItem="vph-tx-dH0" secondAttribute="top" constant="8" id="QkA-tb-Bto"/>
                                                         <constraint firstItem="5ob-Gu-6yY" firstAttribute="trailing" secondItem="UIm-io-u6o" secondAttribute="trailing" id="WAH-ka-2ze"/>
@@ -191,7 +193,7 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today I am feeling:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-Mc-TJp">
-                                        <rect key="frame" x="16" y="11.999999999999996" width="297.33333333333337" height="43.666666666666657"/>
+                                        <rect key="frame" x="16" y="11.999999999999996" width="297.33333333333331" height="43.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -210,6 +212,7 @@
                                     <constraint firstAttribute="trailing" secondItem="T8H-U0-BzW" secondAttribute="trailing" id="akI-az-iCt"/>
                                     <constraint firstItem="T8H-U0-BzW" firstAttribute="top" secondItem="95y-si-N4J" secondAttribute="bottom" constant="8" symbolic="YES" id="np7-mF-0nN"/>
                                     <constraint firstItem="iiS-Mc-TJp" firstAttribute="leading" secondItem="udT-Lw-7hq" secondAttribute="leading" constant="16" id="x5x-1l-46H"/>
+                                    <constraint firstAttribute="trailing" secondItem="95y-si-N4J" secondAttribute="trailing" constant="16" id="ypy-vE-1Ex"/>
                                 </constraints>
                             </view>
                         </subviews>
