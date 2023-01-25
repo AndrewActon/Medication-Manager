@@ -16,6 +16,10 @@ class MoodSurveyViewController: UIViewController {
     //MARK: Properties
     weak var delegate: MoodSurveyViewControllerDelegate?
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reminderFired),
@@ -37,7 +41,11 @@ class MoodSurveyViewController: UIViewController {
         }
     
     @objc private func reminderFired() {
-        print("\(#file) received the Memo!")
+        view.backgroundColor = .systemRed
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.view.backgroundColor = .systemIndigo
+        }
     }
 }
 

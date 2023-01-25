@@ -15,6 +15,10 @@ class MedicationDetialViewController: UIViewController {
     
     var medication: Medication?
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +56,10 @@ class MedicationDetialViewController: UIViewController {
     }
 
     @objc private func reminderFired() {
-        print("\(#file) received the Memo!")
+        view.backgroundColor = .systemRed
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.view.backgroundColor = .systemOrange
+        }
     }
 }

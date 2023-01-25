@@ -13,18 +13,23 @@ class MedicationListViewController: UIViewController {
     @IBOutlet weak var moodSurveyButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         MedicationController.shared.fetchMedications()
-        guard let survey = MoodSurveyController.shared.fetchSurveys() else { return }
-        
-        moodSurveyButton.setTitle(survey.mentalState, for: .normal)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reminderFired),
                                                name: NSNotification.Name(Strings.medicationReminderReceived),
                                                object: nil)
+        
+        guard let survey = MoodSurveyController.shared.fetchSurveys() else { return }
+        
+        moodSurveyButton.setTitle(survey.mentalState, for: .normal)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +51,11 @@ class MedicationListViewController: UIViewController {
     }
 
     @objc private func reminderFired() {
-        print("\(#file) received the Memo!")
+        tableView.backgroundColor = .systemRed
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.tableView.backgroundColor = .systemBackground
+        }
     }
     
     //MARK: Navigation
